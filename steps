@@ -1,0 +1,33 @@
+=> create flutter project
+
+=>go to browser search shared pref in flutter - select pub.dev website
+      here two ways mention for implimentation 
+
+        1. flutter pub add shared_preferences  (write this command in terminal)
+        
+        2. go to pubspec.yaml in your project and wirte this
+            => In  dependencies:
+                     shared_preferences: ^2.2.1
+
+            => Then on top click on Pub get and also click on Pub upgrade
+
+=> set ui one textfield and button to for action save textfield value. and one text for show that saved value.
+
+      firts onPress button actin make afunctio async and hsaredpref make await
+       - make variable => var prefs = await SharedPrefrence.getInstance();
+      make a key value pair
+       - prefs.setString("name", nameController.text.toString());
+      now when app open show saved value so make statefull widget
+       - in statefull widget use initState function use and in initState() use getValue(); for get saved value
+           void initState(){
+               super.initState();
+               getValue();
+            }
+      in last of application make getVlue() function
+        void getValue() async{
+          var prefs = await haredPreference.getInstance();
+          var getName = prefs.getString(name)//"give key name"
+          nameValue = getName ?? "No value stored"
+            "//nameValue is variable show saved value and this variable declared in text widget for show saved value. "
+        }
+        } "//end of page"
